@@ -1,25 +1,4 @@
-const assertEqual = function(actual, expected) {
-
-  if (actual === expected) {
-    console.log(`💪️💪️💪️ Assertion Passed: ${actual}  ===  ${expected}`);
-  } else {
-    console.log(`😿️😿️😿️ Assertion Failed: ${actual}  !==  ${expected}`);
-  }
-
-};
-
-const eqArrays = function(a1, a2) {
-  // Can't be equal if arrays are not same length
-  if (a1.length !== a2.length)
-    return false;
-
-  // Go through each item in array and compare the objects
-  for (let i = 0; i < a1.length; i++) {
-    if (a1[i] !== a2[i])
-      return false;
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
@@ -53,24 +32,25 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-// Test code for primitives\
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true);
+module.exports = eqObjects;
+// // Test code for primitives\
+// const ab = { a: "1", b: "2" };
+// const ba = { b: "2", a: "1" };
+// assertEqual(eqObjects(ab, ba), true);
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false);
+// const abc = { a: "1", b: "2", c: "3" };
+// assertEqual(eqObjects(ab, abc), false);
 
-// Test code for arrays
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true);
+// // Test code for arrays
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertEqual(eqObjects(cd, dc), true);
 
-const cd2 = { c: "1", d: ["2", 4, 4, 5] };
-assertEqual(eqObjects(cd, cd2), false);
+// const cd2 = { c: "1", d: ["2", 4, 4, 5] };
+// assertEqual(eqObjects(cd, cd2), false);
 
-// Test code for nested objects
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1, y: 0 }, b: 2 }), true);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
+// // Test code for nested objects
+// assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1, y: 0 }, b: 2 }), true);
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
+// assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
