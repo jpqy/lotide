@@ -1,6 +1,6 @@
 {
   "name": "@jpenglabs/lotide",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a better lodash",
   "main": "index.js",
   "directories": {
